@@ -58,31 +58,31 @@ class my_time:
 			self.msc = msc
 
 	def set_msec(self, msc):#throws ValueError
-		if my_date._is_msec_valid(msc):
+		if my_time._is_msec_valid(msc):
 			self.msc = msc
 
 	def set_sec(self, sc):#throws ValueError
-		if my_date._is_sec_valid(sc):
+		if my_time._is_sec_valid(sc):
 			self.sc = sc
 
 	def set_min(self, mn):#throws ValueError
-		if my_date._is_min_valid(mn):
+		if my_time._is_min_valid(mn):
 			self.mn = mn
 
 	def set_hour(self, hr):#throws ValueError
-		if my_date._is_hour_valid(hr):
+		if my_time._is_hour_valid(hr):
 			self.hr = hr
 
 	def set_time(self, msc, sc, mn, hr):#throws ValueError	
-		if my_date._is_time_valid(msc, sc, mn, hr):
+		if my_time._is_time_valid(msc, sc, mn, hr):
 		#all the conditions are true, the object of class date can be instanciated
 			self.hr = hr
 			self.mn = mn
 			self.sc = sc
 			self.msc = msc 
 
-	def display_time(self):
-		print(self.msc, self.sc, self.mn, self.hr)
+#	def display_time(self):
+#		print(self.msc, self.sc, self.mn, self.hr)
 
 	@staticmethod
 	def _number_of_seconds(inst):
@@ -91,9 +91,3 @@ class my_time:
 	def difference(self, other):
 		return my_time._number_of_seconds(self) - my_time._number_of_seconds(other)
 
-
-
-#time1 = my_time(1,1,1,1)
-
-#time1.display_time()
-#print(my_time._number_of_seconds(time1))		
