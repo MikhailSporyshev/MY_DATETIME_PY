@@ -39,29 +39,19 @@ class TestDate(unittest.TestCase):
 
 	def test_year_valid(self):
 		for year in range(my_date._MIN_YEAR,my_date._MAX_YEAR):
-				self.assertTrue(my_date._is_year_valid(year))
-
-		with self.assertRaises(ValueError):
+			self.assertTrue(my_date._is_year_valid(year))
 			self.assertFalse(my_date._is_year_valid(0))	
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_year_valid(-1))
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_year_valid(10000))
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_year_valid(10010))	
 				
 
 	def test_month_valid(self):
 		for month in range(my_date._MIN_MONTH,my_date._MAX_MONTH):
-				self.assertTrue(my_date._is_month_valid(month))
-		
-		with self.assertRaises(ValueError):
+			self.assertTrue(my_date._is_month_valid(month))
 			self.assertFalse(my_date._is_month_valid(0))	
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_month_valid(-1))
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_month_valid(13))
-		with self.assertRaises(ValueError):
 			self.assertFalse(my_date._is_month_valid(20))	
 		
 		
@@ -80,23 +70,15 @@ class TestDate(unittest.TestCase):
 				self.assertTrue(my_date._is_day_valid(14, month, year))
 				self.assertTrue(my_date._is_day_valid(_MAX_DAY, month, year))
 				
-				with self.assertRaises(ValueError):
-					self.assertFalse(my_date._is_day_valid(_MAX_DAY + 1, month, year))				
-				with self.assertRaises(ValueError):
-					self.assertFalse(my_date._is_day_valid(_MAX_DAY + 10, month, year))				
-				with self.assertRaises(ValueError):
-					self.assertFalse(my_date._is_day_valid(0, month, year))				
-				with self.assertRaises(ValueError):
-					self.assertFalse(my_date._is_day_valid(-10, month, year))				
-	
-		with self.assertRaises(ValueError):
-			self.assertFalse(my_date._is_day_valid(1,1,1000000))
-		with self.assertRaises(ValueError):
-			self.assertFalse(my_date._is_day_valid(0,1,1))
-		with self.assertRaises(ValueError):
-			self.assertFalse(my_date._is_day_valid(1,0,1))
-		with self.assertRaises(ValueError):
-			self.assertFalse(my_date._is_day_valid(1,1,0))	
+				self.assertFalse(my_date._is_day_valid(_MAX_DAY + 1, month, year))				
+				self.assertFalse(my_date._is_day_valid(_MAX_DAY + 10, month, year))				
+				self.assertFalse(my_date._is_day_valid(0, month, year))				
+				self.assertFalse(my_date._is_day_valid(-10, month, year))				
+
+		self.assertFalse(my_date._is_day_valid(1,1,1000000))
+		self.assertFalse(my_date._is_day_valid(0,1,1))
+		self.assertFalse(my_date._is_day_valid(1,0,1))
+		self.assertFalse(my_date._is_day_valid(1,1,0))	
 	
 	def test_set_year(self):
 		date = my_date()
